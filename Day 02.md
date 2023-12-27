@@ -201,8 +201,7 @@ int main()
 }
 ```
 
-## [P17. Buying a TV Set
- ](https://codeforces.com/group/yg7WhsFsAp/contest/419146/problem/P17 )
+## [P17. Buying a TV Set](https://codeforces.com/group/yg7WhsFsAp/contest/419146/problem/P17 )
 
 ```
 #include<bits/stdc++.h>
