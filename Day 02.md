@@ -270,13 +270,33 @@ int main(){
 ```
 
 
-## [ ]( )
+## [P20. Multiplication Table ](https://codeforces.com/group/yg7WhsFsAp/contest/419146/problem/P20 )
 
 ```
-
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    cin.tie(0)->sync_with_stdio(0);
+    
+    int n,x,ans=0;
+    cin>>n>>x;
+    for(int i=1; i<=sqrt(x); i++){
+        if(x%i==0){
+            
+            if(x/i<=n && i<=n){
+                if(x/i==i){
+                    ans++; 
+                }else{
+                    ans+=2; 
+                }
+            }
+        }
+    }
+    cout<<ans<<endl;
+}
 ```
 
-## [ ]( )
+## [P21. Equation](https://codeforces.com/group/yg7WhsFsAp/contest/419146/problem/P21 )
 
 ```
 
