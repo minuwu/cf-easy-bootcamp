@@ -266,7 +266,44 @@ int main(){
 ## [P19. Mountain peaks ](https://codeforces.com/group/yg7WhsFsAp/contest/419146/problem/P19 )
 
 ```
-
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    cin.tie(0)->sync_with_stdio(0);
+    
+    int n;cin>>n;
+    vector<int>v(n,0),a(n,0);
+    for(int i=0; i<n; i++){
+        cin>>v[i];
+    }
+    for(int i=1; i<n-1; i++){
+        if(v[i]>v[i-1] && v[i]>v[i+1])
+            a[i]=1;
+    }
+    
+    for(int blocksize=2; blocksize<=n; blocksize++){
+        int cnt=0;
+        if(n%blocksize==0){
+            for(int block=0;block<n;block+=blocksize){
+                bool flag = false;
+                for(int blockelement=block; blockelement<blocksize+block; blockelement++){
+                    if(a[blockelement]==1){
+                        flag = true;
+                    }
+                }
+                if(flag==true) cnt++;
+            }
+            if(cnt==n/blocksize){
+                cout<<n/blocksize<<endl;
+                return 0;
+            }
+            
+        }
+    }
+    cout<<0<<endl;
+    
+    return 0;
+}
 ```
 
 
@@ -299,26 +336,117 @@ int main(){
 ## [P21. Equation](https://codeforces.com/group/yg7WhsFsAp/contest/419146/problem/P21 )
 
 ```
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    cin.tie(0)->sync_with_stdio(0);
+    
+    long long n;
+    cin>>n;
+    cout<<9*n<<" "<<8*n<<endl;
+    return 0;
+}
+```
+
+
+## [P22. Prime Sieve ](https://codeforces.com/group/yg7WhsFsAp/contest/419146/problem/P22 )
+
+```
+#include<bits/stdc++.h>
+using namespace std;
+const int sss= 1e7+10;
+bool prime[sss];
+int sieve(){
+    memset(prime,true,sizeof(prime));
+    for(int i=2; i*i<=(sss); i++){
+        if(prime[i]){
+            for(int j=i*i; j<(sss); j+=i)
+                prime[j]=false;
+        }
+    }
+    return 0;
+}
+int main(){
+    cin.tie(0)->sync_with_stdio(0);
+    sieve();
+    int n,cnt=0;
+    cin>>n;
+    for(int i=2; i<=n; i++){
+        if(prime[i]) cnt++;
+    }
+    cout<<cnt<<endl;
+    for(int i=2; i<=n; i++){
+        if(prime[i]) cout<<i<<" ";
+    }
+    return 0;
+}
+```
+
+## [P23. Divisors count ](https://codeforces.com/group/yg7WhsFsAp/contest/419146/problem/P23 )
+
+```
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    cin.tie(0)->sync_with_stdio(0);
+    
+    int n,sum=0;
+    cin>>n;
+    // vector<int> v(n+1,0);
+    for(int i=1; i<=n; i++){
+        for(int j=i; j<=n; j+=i){
+            sum++;
+        }
+    }
+    cout<<sum;
+    return 0;
+}
+```
+
+
+## [P24. T-primes ](https://codeforces.com/group/yg7WhsFsAp/contest/419146/problem/P24 )
+
+```
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+const int maxn = 1e6+5;
+bool isPrime[maxn];
+void sieve(){
+    memset(isPrime, true, sizeof isPrime);
+    isPrime[0]=isPrime[1]=false;
+    for(int i=2; i<=sqrt(maxn);i++){
+        if(isPrime[i]){
+            for(int j=i*i; j<=maxn; j+=i)
+                isPrime[j]=false;
+        }
+    }
+}
+int main(){
+    cin.tie(0)->sync_with_stdio(0);
+    
+    sieve();
+    ll n,x;
+    cin>>n;
+    while(n--){
+        cin>>x;
+        ll r=sqrt(x);
+        if(r*r==x && isPrime[r]){
+            cout<<"YES\n";
+        }else{
+            cout<<"NO\n";
+        }
+    }
+    return 0;
+}
 
 ```
 
 
-## [ ]( )
-
-```
-
-```
-
-## [ ]( )
-
-```
-
-```
 
 
-## [ ]( )
 
-```
 
-```
+
+
 
