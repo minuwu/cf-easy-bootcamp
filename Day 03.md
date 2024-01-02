@@ -84,18 +84,56 @@ int main(){
 ## [P27. Scores in Order ](https://codeforces.com/group/yg7WhsFsAp/contest/355494/problem/P27 )
 
 ```
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    cin.tie(0)->sync_with_stdio(0);
 
+    int n;
+    cin>>n;
+    vector<int>v;
+    v.push_back(INT_MIN);
+    for(int i=0; i<n; i++){
+        int x;  cin>>x;
+        for(int j=0; j<=i; j++){
+            if(x>v[j]){
+                v.insert(v.begin()+j,x);
+                cout<<j+1<<"\n";
+                break;
+            }
+        }
+    }
+    for(int i=0; i<n; i++)cout<<v[i]<<" ";
+
+    return 0;
+}
 ```
 
 
-## [ ]( )
+## [P28. Gravity Flip ](https://codeforces.com/group/yg7WhsFsAp/contest/355494/problem/P28 )
 
 ```
-
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    cin.tie(0)->sync_with_stdio;
+    
+    int n;cin>>n;
+    vector<int>v(n);
+    for(int i=0; i<n; i++){
+        cin>>v[i];
+    }
+    sort(v.begin(),v.end());
+    for(auto i: v){
+        cout<<i<<" ";
+    }
+    
+    return 0;
+}
 ```
 
 
-## [ ]( )
+## [P29. New Year Garland ](https://codeforces.com/group/yg7WhsFsAp/contest/355494/problem/P29 )
 
 ```
 
