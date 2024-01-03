@@ -136,60 +136,123 @@ int main(){
 ## [P29. New Year Garland ](https://codeforces.com/group/yg7WhsFsAp/contest/355494/problem/P29 )
 
 ```
+#include<bits/stdc++.h>
+#define int long long
+using namespace std;
+bool cmp(pair<char,int>x, pair<char,int>y){
+    return (x.second<y.second);
+}
+int32_t main(){
+    cin.tie(0)->sync_with_stdio;
+    
+    int n;cin>>n;
+    while(n--){
+        vector<int>v(3);
+        for(int i=0; i<3; i++)
+        cin>>v[i];
+        sort(v.begin(),v.end());
+        if(v[2]-1<=(v[0]+v[1])){
+            cout<<"Yes\n";
+        }else{
+            cout<<"No\n";
+        }
+        
+    }
+    return 0;
+}
+```
+
+
+## [P30. Temporarily unavailable](https://codeforces.com/group/yg7WhsFsAp/contest/355494/problem/P30 )
+
+```
+#include<bits/stdc++.h>
+#define int long long
+using namespace std;
+bool cmp(pair<char,int>x, pair<char,int>y){
+    return (x.second<y.second);
+}
+int32_t main(){
+    cin.tie(0)->sync_with_stdio;
+    
+    int n;cin>>n;
+    while(n--){
+        int p,q,r,s;
+        cin>>p>>q>>r>>s;
+        vector<pair<char,int>>v;
+        int a,b,c,d;
+        a=(p<q)?p:q;
+        b=(p<q)?q:p;
+        c=r-s;
+        d=r+s;
+        v.clear();
+        v.push_back(make_pair('a',a));
+        v.push_back(make_pair('b',b));
+        v.push_back(make_pair('c',c));
+        v.push_back(make_pair('d',d));
+        // for(auto i: v) cout<<i.first<<" "<<i.second<<" ";
+        sort(v.begin(),v.end(),cmp);
+        // for(auto i: v) cout<<i.first<<" "<<i.second<<" ";
+        
+        if(v[0].first=='a' && v[3].first=='b'){
+            cout<<(v[1].second-v[0].second)+(v[3].second-v[2].second)<<"\n";
+        }else if( (v[0].first=='a' && v[1].first=='b') || (v[2].first=='a' && v[3].first=='b')  ){
+            if(v[0].first=='a'){
+                cout<<(v[1].second-v[0].second)<<"\n";
+            }else{
+                cout<<(v[3].second-v[2].second)<<"\n";
+            }
+        }else if( v[0].first=='a' && v[2].first=='b'){
+            cout<<(v[1].second-v[0].second)<<"\n";
+        }else if(v[1].first=='a' && v[3].first=='b'){
+            cout<<(v[3].second-v[2].second)<<"\n";
+        }else{
+            cout<<"0\n";
+        }
+        
+    }
+    return 0;
+}
+```
+
+
+## [P31. Shuffle Hashing ](https://codeforces.com/group/yg7WhsFsAp/contest/355494/problem/P31 )
+
+```
 
 ```
 
 
-## [ ]( )
+## [P32. Grow The Tree ](https://codeforces.com/group/yg7WhsFsAp/contest/355494/problem/P32 )
 
 ```
-
-```
-
-
-## [ ]( )
-
-```
-
-```
-
-
-## [ ]( )
-
-```
-
-```
-
-
-## [ ]( )
-
-```
-
-```
-
-
-## [ ]( )
-
-```
-
+#include<bits/stdc++.h>
+#define int long long
+using namespace std;
+int32_t main(){
+    cin.tie(0)->sync_with_stdio;
+    
+    int n;cin>>n;
+    vector<int>v(n);
+    for(int i=0; i<n; i++){
+        cin>>v[i];
+    }
+    // for(auto i:v)cout<<i<<" ";
+    sort(v.begin(),v.end());
+    int x=0,y=0;
+    for(int i=0; i<n/2; i++){
+        x+=v[i];
+    }
+    for(int i=n/2; i<n; i++){
+        y+=v[i];
+    }
+    cout<<(x*x)+(y*y)<<"\n";
+    return 0;
+}
 ```
 
 
-## [ ]( )
-
-```
-
-```
-
-
-## [ ]( )
-
-```
-
-```
-
-
-## [ ]( )
+## [P33. Thanos Sort ](https://codeforces.com/group/yg7WhsFsAp/contest/355494/problem/P33 )
 
 ```
 
