@@ -219,6 +219,36 @@ int32_t main(){
 ## [P31. Shuffle Hashing ](https://codeforces.com/group/yg7WhsFsAp/contest/355494/problem/P31 )
 
 ```
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    cin.tie(0)->sync_with_stdio(0);
+    
+    int n;  cin>>n;
+    while(n--){
+        string pass,hash,x;
+        cin>>pass>>hash;
+        bool flag= false;
+        int sp= pass.size(), sh= hash.size();
+        sort(pass.begin(),pass.end());
+        for(int i=0; i<=sh-sp; i++){
+            x = hash.substr(i,sp);
+            sort(x.begin(),x.end());
+            if(x==pass){
+                flag = true;
+                break;
+            }
+        }
+        if(flag){
+            cout<<"Yes\n";
+        }else{
+            cout<<"No\n";
+        }
+        
+    }
+    
+    return 0;
+}
 
 ```
 
@@ -255,5 +285,39 @@ int32_t main(){
 ## [P33. Thanos Sort ](https://codeforces.com/group/yg7WhsFsAp/contest/355494/problem/P33 )
 
 ```
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    cin.tie(0)->sync_with_stdio(0);
+    
+    int n; cin>>n;
+    vector<int>v(n,0);
+    for(int i=0; i<n; i++) cin>>v[i];
+    bool flag = false;
+    
+    for(int box = n; box>=1; box/=2){
+        if(flag){
+            break;
+        }
+                    
+        int blocksize= box;
+        for(int start=0; start<(n); start+=blocksize){
+            int cnt=1;
+            for(int element=1; element<blocksize; element++){
+                if(v[element+start]>=v[element+start-1]){
+                    cnt++;
+                }
+            }
+            
+            if(cnt==blocksize){
+                cout<<cnt;
+                flag = true;
+                break;
+            }
+        }
+    }
+    
+    return 0;
+}
 
 ```
