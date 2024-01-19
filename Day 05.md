@@ -24,7 +24,22 @@ int main(){
 ## [P44. Morse code](https://codeforces.com/group/yg7WhsFsAp/contest/355498/problem/P44)
 
 ```
+#include <bits/stdc++.h>
+using namespace std;
+const int MOD = 1000000007;
 
+int main(){
+    cin.tie(0)->sync_with_stdio(0);
+    
+    int n, p;
+    cin >> n ;
+    vector<int> f{1, 1, 2};
+    for (int i = 3; i <= n; i++) {
+        f.push_back((f[i - 1] + f[i - 2]));
+    }
+    cout << f[n] << '\n';
+    return 0;
+}
 ```
 
 
@@ -111,7 +126,22 @@ int main(){
 ## [P48. The line](https://codeforces.com/group/yg7WhsFsAp/contest/355498/problem/P48)
 
 ```
+#include <bits/stdc++.h>
+using namespace std;
+const int MOD = 1000000007;
 
+int main(){
+    cin.tie(0)->sync_with_stdio(0);
+    
+    int n, p;
+    cin >> n >> p;
+    vector<int> f{1, 1, 2};
+    for (int i = 3; i <= n; i++) {
+        f.push_back((f[i - 1] + f[i - 2]) % p);
+    }
+    cout << f[n] << '\n';
+    return 0;
+}
 ```
 
 
@@ -140,10 +170,21 @@ int main(){
 ```
 
 
-## [](https://codeforces.com/group/yg7WhsFsAp/contest/355498/problem/P50)
+## [P50. Jzzhu and Sequences](https://codeforces.com/group/yg7WhsFsAp/contest/355498/problem/P50)
 
 ```
+#include <bits/stdc++.h>
+using namespace std;
+const int MOD = 1000000007;
 
+int main(){
+    cin.tie(0)->sync_with_stdio(0);
+    long long int a, b, t;
+    cin >> a >> b >> t;
+    long long int s[] = {a, b, b - a, -a, -b, a - b};
+    cout << (s[(t - 1) % 6] % MOD + MOD) % MOD;
+    return 0;
+}
 ```
 
 
