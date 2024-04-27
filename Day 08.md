@@ -96,18 +96,60 @@ int main(){
 ## [P67. Eating Soup](https://codeforces.com/group/yg7WhsFsAp/contest/355506/problem/P67)
 
 ```
-
+#include <bits/stdc++.h>
+using namespace std;
+int main (){
+    int n, m;
+	cin >> n >> m;
+	cout << (m ? min(m, n - m) : 1) << endl;
+	return 0;
+}
 ```
 
 ## [P68. I Wanna Be the Guy](https://codeforces.com/group/yg7WhsFsAp/contest/355506/problem/P68)
 
 ```
-
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    cin.tie(0)->sync_with_stdio(0);
+    
+    int n,p;
+    cin>>n;
+    set<int>s;
+    for(int i=0; i<2; i++){
+        cin>>p;
+        for(int j=0; j<p; j++){
+            int x; cin>>x;
+            s.insert(x);
+        }
+    }
+    cout<<((n==s.size()) ? "I become the guy.": "Oh, my keyboard!");
+    
+    return 0;
+}
 ```
 ## [P69. Meme problem](https://codeforces.com/group/yg7WhsFsAp/contest/355506/problem/P69)
 
 ```
-
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    cin.tie(0)->sync_with_stdio(0);
+    int ans=0,x=1;
+    string str;
+    getline(cin,str);
+    for(auto c: str){
+        if(c<='9' && c>='0'){
+            ans*=10;
+            ans+=(c-'0');
+        }
+    }
+    if(str[0]=='i') x=4;
+    if(str[0]=='l') x=8;
+    cout<<ans*x<<endl;
+    return 0;
+}
 ```
 
 ## [P70. Megacity](https://codeforces.com/group/yg7WhsFsAp/contest/355506/problem/P70)
