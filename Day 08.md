@@ -155,7 +155,39 @@ int main(){
 ## [P70. Megacity](https://codeforces.com/group/yg7WhsFsAp/contest/355506/problem/P70)
 
 ```
-
+#include<bits/stdc++.h>
+using namespace std;
+struct Point{
+    int x, y, z;
+    double d = sqrt(x*x + y*y);
+    Point(int x, int y, int z) : x(x), y(y), z(z) {
+        // cout<<x<<" "<<d<<endl;
+    };
+    bool operator<(const Point &other) const {
+        return d < other.d;
+    };
+};
+int main(){
+    int n, s, x= 1e6;
+    cin>>n>>s;
+    vector<Point>points;
+    for(int i=0; i<n; i++){
+        int a, b, c;
+        cin>>a>>b>>c;
+        points.push_back(Point(a,b,c));
+        // cout<<a<<b<<c<<endl;
+    }
+    sort(points.begin(),points.end());
+    for(int i=0; i<n; i++){
+        s+=points[i].z;
+        if(s>=x){
+            cout<<setprecision(16)<<points[i].d<<endl;
+            return 0;
+        }
+    }
+    cout<<(-1)<<endl;
+    return 0;
+}
 ```
 
 ## [P71. Love "A"](https://codeforces.com/group/yg7WhsFsAp/contest/355506/problem/P71)
