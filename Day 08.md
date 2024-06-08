@@ -193,7 +193,25 @@ int main(){
 ## [P71. Love "A"](https://codeforces.com/group/yg7WhsFsAp/contest/355506/problem/P71)
 
 ```
-
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    string str;
+    int a=0, notA=0;
+    cin>>str;
+    for(char c: str){
+        if(c=='a'){
+            a++;
+        }else{
+            notA++;
+        }
+    }
+    if(a>notA){
+        cout<<str.length()<<endl;
+    }else{
+        cout<<(a*2-1)<<endl;
+    }
+}
 ```
 
 ## [P72. Hate "A"](https://codeforces.com/group/yg7WhsFsAp/contest/355506/problem/P72)
