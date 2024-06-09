@@ -19,3 +19,7 @@
 ## [Day 07](./Day%2007.md)
 
 ## [Day 08](./Day%2008.md)
+
+## [Exam 03](./Exam%2003.md)
+
+## [Extra Problems](./ExtraProblems.md)

@@ -217,11 +217,60 @@ int main(){
 ## [P72. Hate "A"](https://codeforces.com/group/yg7WhsFsAp/contest/355506/problem/P72)
 
 ```
+#include<bits/stdc++.h>
+using namespace std;
 
+int main () {
+
+  cin.tie(0)->sync_with_stdio(0);
+  string t, s, p, a, c;
+  cin >> t;
+  a = t;
+  t.erase(remove(t.begin(), t.end(), 'a'), t.end());
+  p = t.substr(0, t.size() / 2);
+  s = t.substr(t.size() / 2, t.size());
+  c = a.substr(0, a.size() - p.size());
+  if (a == c + p && s == p)
+    cout << a.substr(0, a.size() - p.size()) << endl;
+  else
+    cout << ":(" << endl;
+
+  return 0;
+}
 ```
 
 ## [P73. Boxers](https://codeforces.com/group/yg7WhsFsAp/contest/355506/problem/P73)
 
 ```
+#include<bits/stdc++.h>
+std::unordered_set<int> mySet;
+using namespace std;
+
+int main() {
+    int n;
+    std::cin >> n;
+    vector<int>v;
+    for (int i = 0; i < n; ++i) {
+        int x;
+        std::cin >> x;
+        v.push_back(x);
+    }
+    sort(v.begin(),v.end());
+    for(auto x: v){
+        if (x - 1 > 0 && mySet.find(x - 1) == mySet.end()) {
+            mySet.insert(x - 1);
+            // cout<<x-1<<" ";
+        }else if(mySet.find(x) == mySet.end()){
+            mySet.insert(x);
+            // cout<<x<<" ";
+        }else if(mySet.find(x+1) == mySet.end()){
+            mySet.insert(x+1);
+            // cout<<x+1<<" ";
+        }
+    }
+    std::cout << mySet.size() << std::endl;
+
+    return 0;
+}
 
 ```
