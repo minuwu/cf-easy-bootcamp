@@ -121,11 +121,70 @@ int main(){
 ```    
 ## [E. Segment Occurrences](https://codeforces.com/group/yg7WhsFsAp/contest/355508/problem/E)
 ```
-
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    ios_base::sync_with_stdio(false); cin.tie(NULL);
+    int n, m, q, l, r;
+    string s, t;
+    cin>>n>>m>>q;
+    cin>>s>>t;
+  
+    int arr[1005]; 
+    memset(arr, 0, sizeof(arr));
+    for (int i = 0; i <= n - m; ++i){
+         arr[i + 1] = arr[i] + (s.substr(i, m) == t);
+    }
+        
+    while (q--){
+        cin >> l >> r;
+        if (r - l + 1 < m)
+            cout << "0" << endl;
+        else
+            cout << arr[r - m + 1] - arr[l - 1] << endl;
+    }
+    
+    return 0;
+}
 ```     
 ## [F. Bus to Udayland](https://codeforces.com/group/yg7WhsFsAp/contest/355508/problem/F)
 ```
-
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    ios_base::sync_with_stdio(false); cin.tie(NULL);
+    
+    int n; cin>>n;
+    char ch[n+5][5];
+    for(int i=0; i<n; i++){
+        cin>>ch[i][0]>>ch[i][1]>>ch[i][2]>>ch[i][3]>>ch[i][4];
+    }
+    bool flag = false;
+    for(int i=0; i<n; i++){
+        if(ch[i][0] == ch[i][1] && ch[i][0] == 'O'){
+            ch[i][0] = '+';
+            ch[i][1] = '+';
+            flag = true;
+            break;
+        }
+        if(ch[i][3] == ch[i][4] && ch[i][3] == 'O'){
+            ch[i][3] = '+';
+            ch[i][4] = '+';
+            flag = true;
+            break;
+        }
+    }
+    if(flag){
+        cout<<"YES\n";
+        for(int i=0; i<n; i++){
+            cout<<ch[i][0]<<ch[i][1]<<ch[i][2]<<ch[i][3]<<ch[i][4]<<"\n";
+        }
+    }else{
+        cout<<"NO\n";
+    }
+    
+    return 0;
+}
 ```  
 ## [G. Memory and Crow](https://codeforces.com/group/yg7WhsFsAp/contest/355508/problem/G)
 ```
