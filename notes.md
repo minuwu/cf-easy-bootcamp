@@ -50,3 +50,62 @@
 </details>
 
 ---
+
+<details>
+<summary> TokenCounting.cpp
+
+---
+</summary>
+<p></p>
+<!-- <pre>
+<code> -->
+
+```
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <sstream>
+#include <unordered_map>
+
+using namespace std;
+
+int main() {
+    ifstream inputFile("input.txt"); 
+    ofstream outputFile("output.txt");
+
+    string line;
+    string info = "\nSubmission by: \n[Mohammad Minhazul Abedin] \n[RegNo: 2019-16-04] \n";
+    unordered_map<string, int> tokenCount;
+
+    while (getline(inputFile, line)) {
+        stringstream ss(line);
+        string token;
+        while (ss >> token) {
+            tokenCount[token]++;
+        }
+    }
+
+    int totalTokens = 0;
+    for (const auto& pair : tokenCount) {
+        totalTokens += pair.second;
+    }
+
+    outputFile << "Total Tokens: " << totalTokens << endl;
+    outputFile << info << endl;
+
+    inputFile.close();
+    outputFile.close();
+
+    cout << "Total tokens written to output.txt.\n";
+    cout << info <<endl;
+         
+    return 0;
+}
+
+```
+
+<!-- </code>
+</pre> -->
+
+---
+</details>
