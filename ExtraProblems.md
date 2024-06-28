@@ -260,7 +260,31 @@ int main(){
 ```    
 ## [J. Letters Cyclic Shift](https://codeforces.com/group/yg7WhsFsAp/contest/355508/problem/J)
 ```
+#include<bits/stdc++.h>
+typedef long long ll;
+using namespace std;
+int main(){
+    ios_base::sync_with_stdio(false); cin.tie(NULL);
+    
+    string str;
+    cin>>str;
+    bool flag = false;
+    for(int i=0; i<str.size(); i++){
+        if(str[i]=='a'){
+            if(i!=0 && flag){
+                break;
+            }else if(i==(str.size ()-1)){
+                str[i] = 'z';
+            }
+        }else{
+            flag = true;
+            str[i] = str[i] - 1 ;
+        }
+    }
+    cout<<str<<endl;
 
+    return 0;
+}
 ```     
 ## [K. Tetris](https://codeforces.com/group/yg7WhsFsAp/contest/355508/problem/K)
 ```
