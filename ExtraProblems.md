@@ -237,7 +237,26 @@ int main(){
 ```     
 ## [I. King Moves](https://codeforces.com/group/yg7WhsFsAp/contest/355508/problem/I)
 ```
+#include<bits/stdc++.h>
+typedef long long ll;
+using namespace std;
+int main(){
+    ios_base::sync_with_stdio(false); cin.tie(NULL);
+    
+    char c; int d; 
+    cin>>c>>d;
+    
+    if((c=='a'||c=='h') && (d==1 || d==8)){
+        cout<<3<<endl;
+    }else if((c=='a'||c=='h') || (d==1 || d==8)){
+        cout<<5<<endl;
+    }else{
+        cout<<8;
+    }
+    
 
+    return 0;
+}
 ```    
 ## [J. Letters Cyclic Shift](https://codeforces.com/group/yg7WhsFsAp/contest/355508/problem/J)
 ```
