@@ -188,11 +188,52 @@ int main(){
 ```  
 ## [G. Memory and Crow](https://codeforces.com/group/yg7WhsFsAp/contest/355508/problem/G)
 ```
-
+#include<bits/stdc++.h>
+typedef long long ll;
+using namespace std;
+int main(){
+    ios_base::sync_with_stdio(false); cin.tie(NULL);
+    ll n, x;
+    cin>>n;
+    vector<ll> v;
+    for(int i=0; i<n; i++){
+        cin>>x;
+        v.push_back(x);
+    }
+    for(int i=1; i<n; i++){
+     v[i-1] = v[i] + v[i-1];   
+    }
+    for(auto a: v) cout<<a<<" ";
+    
+    return 0;
+}
 ```    
 ## [H. Memory and Trident](https://codeforces.com/group/yg7WhsFsAp/contest/355508/problem/H)
 ```
+#include<bits/stdc++.h>
+typedef long long ll;
+using namespace std;
+int main(){
+    ios_base::sync_with_stdio(false); cin.tie(NULL);
+    
+    string str;
+    cin>>str;
+    
+    if(str.size()&1){
+        cout<<"-1";
+        return 0;
+    }
+    int x=0,y=0;
+    for(int i=0; i < str.length(); i++){
+        if(str[i]=='U')y++;
+        if(str[i]=='D')y--;
+        if(str[i]=='L')x--;
+        if(str[i]=='R')x++;
+    }
+    cout << (abs(x)+abs(y))/2 << endl;
 
+    return 0;
+}
 ```     
 ## [I. King Moves](https://codeforces.com/group/yg7WhsFsAp/contest/355508/problem/I)
 ```
