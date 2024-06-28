@@ -288,11 +288,44 @@ int main(){
 ```     
 ## [K. Tetris](https://codeforces.com/group/yg7WhsFsAp/contest/355508/problem/K)
 ```
-
+#include<bits/stdc++.h>
+typedef long long ll;
+using namespace std;
+int main(){
+    ios_base::sync_with_stdio(false); cin.tie(NULL);
+    
+    int n, m, ans=INT_MAX;
+    cin>>n>>m;
+    vector<int>v(n,0);
+    for(int i=0; i<m; i++){
+        int x; cin>>x;
+        v[x-1]++;
+    }
+    for(auto a: v){
+        ans= min(a, ans);
+    }
+    cout<<ans<<endl;
+    
+    return 0;
+}
 ```     
 ## [L. Mahmoud and Ehab and the even-odd game](https://codeforces.com/group/yg7WhsFsAp/contest/355508/problem/L)
 ```
-
+#include<bits/stdc++.h>
+typedef long long ll;
+using namespace std;
+int main(){
+    ios_base::sync_with_stdio(false); cin.tie(NULL);
+    
+    int n; cin>>n;
+    if(n&1){
+        cout<<"Ehab";
+    }else{
+        cout<<"Mahmoud";
+    }
+    
+    return 0;
+}
 ```    
 ## [M. Mahmoud and Ehab and the message](https://codeforces.com/group/yg7WhsFsAp/contest/355508/problem/M)
 ```
