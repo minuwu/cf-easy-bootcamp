@@ -329,11 +329,81 @@ int main(){
 ```    
 ## [M. Mahmoud and Ehab and the message](https://codeforces.com/group/yg7WhsFsAp/contest/355508/problem/M)
 ```
+#include<bits/stdc++.h>
+#define int long long
+using namespace std;
+int32_t main(){
+    ios_base::sync_with_stdio(false); cin.tie(NULL);
+    
+    int n, k, m;    cin>>n>>k>>m;
+    vector<string> language;
+    for(int i=0; i<n; i++){
+        string s; cin>>s;
+        language.push_back(s);
+    }
+    vector<int>cost;
+    for(int i=0; i<n; i++){
+        int x; cin>>x;
+        cost.push_back(x);
+    }
+    while(k--){
+        int x;  cin>>x;
+        int lowest = INT_MAX;
+        vector<int>change;
+        for(int i=0; i<x; i++){
+            int y; cin>>y;
+            change.push_back(y);
+            lowest = min(lowest, cost[y-1]);
+        }
+        for(auto a: change) cost[a-1]=lowest;
+    }
+    unordered_map<string, int>mp;
+    for(int i=0; i<n; i++){
+        mp[language[i]]=cost[i];
+    }
+    int total=0;
+    for(int i=0; i<m; i++){
+        string s; cin>>s;
+        total += mp[s];
+    }
+    cout<<total<<endl;
+    return 0;
+}
 
+// Note: Starting from C++17, structure bindings can be used.
+// for(const auto& [key, value]: unordered_map)
 ```    
 ## [N. Lecture Sleep](https://codeforces.com/group/yg7WhsFsAp/contest/355508/problem/N)
 ```
-
+#include<bits/stdc++.h>
+#define int long long
+using namespace std;
+int32_t main(){
+    ios_base::sync_with_stdio(false); cin.tie(NULL);
+    int n, k; cin>>n>>k;
+    vector<int>lecture(n), state(n), awake(n+1), sleep(n+1);
+    for(int i=0; i<n; i++) cin>>lecture[i];
+    for(int i=0; i<n; i++) cin>>state[i];
+    awake[0]=(0);
+    sleep[0]=(0);
+    int totalLecture = 0;
+    for(int i=0; i<n; i++){
+        if(state[i]==1){
+            awake[i+1] = awake[i] + lecture[i];
+            sleep[i+1] = sleep[i] + (0);
+            totalLecture += lecture[i];
+        }else{
+            awake[i+1] = awake[i] + (0);
+            sleep[i+1] = sleep[i] + lecture[i];
+        }
+    }
+    int extra=0;
+    for(int i=0; i<n-k+1; i++){
+        extra = max(extra, (sleep[i+k]-sleep[i]));
+    }
+    cout<<totalLecture+extra<<endl;
+    return 0;
+}
 ```  
 ## [O. Feed the cat](https://codeforces.com/group/yg7WhsFsAp/contest/355508/problem/O)
 ```
