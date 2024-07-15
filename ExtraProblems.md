@@ -188,35 +188,222 @@ int main(){
 ```  
 ## [G. Memory and Crow](https://codeforces.com/group/yg7WhsFsAp/contest/355508/problem/G)
 ```
-
+#include<bits/stdc++.h>
+typedef long long ll;
+using namespace std;
+int main(){
+    ios_base::sync_with_stdio(false); cin.tie(NULL);
+    ll n, x;
+    cin>>n;
+    vector<ll> v;
+    for(int i=0; i<n; i++){
+        cin>>x;
+        v.push_back(x);
+    }
+    for(int i=1; i<n; i++){
+     v[i-1] = v[i] + v[i-1];   
+    }
+    for(auto a: v) cout<<a<<" ";
+    
+    return 0;
+}
 ```    
 ## [H. Memory and Trident](https://codeforces.com/group/yg7WhsFsAp/contest/355508/problem/H)
 ```
+#include<bits/stdc++.h>
+typedef long long ll;
+using namespace std;
+int main(){
+    ios_base::sync_with_stdio(false); cin.tie(NULL);
+    
+    string str;
+    cin>>str;
+    
+    if(str.size()&1){
+        cout<<"-1";
+        return 0;
+    }
+    int x=0,y=0;
+    for(int i=0; i < str.length(); i++){
+        if(str[i]=='U')y++;
+        if(str[i]=='D')y--;
+        if(str[i]=='L')x--;
+        if(str[i]=='R')x++;
+    }
+    cout << (abs(x)+abs(y))/2 << endl;
 
+    return 0;
+}
 ```     
 ## [I. King Moves](https://codeforces.com/group/yg7WhsFsAp/contest/355508/problem/I)
 ```
+#include<bits/stdc++.h>
+typedef long long ll;
+using namespace std;
+int main(){
+    ios_base::sync_with_stdio(false); cin.tie(NULL);
+    
+    char c; int d; 
+    cin>>c>>d;
+    
+    if((c=='a'||c=='h') && (d==1 || d==8)){
+        cout<<3<<endl;
+    }else if((c=='a'||c=='h') || (d==1 || d==8)){
+        cout<<5<<endl;
+    }else{
+        cout<<8;
+    }
+    
 
+    return 0;
+}
 ```    
 ## [J. Letters Cyclic Shift](https://codeforces.com/group/yg7WhsFsAp/contest/355508/problem/J)
 ```
+#include<bits/stdc++.h>
+typedef long long ll;
+using namespace std;
+int main(){
+    ios_base::sync_with_stdio(false); cin.tie(NULL);
+    
+    string str;
+    cin>>str;
+    bool flag = false;
+    for(int i=0; i<str.size(); i++){
+        if(str[i]=='a'){
+            if(i!=0 && flag){
+                break;
+            }else if(i==(str.size ()-1)){
+                str[i] = 'z';
+            }
+        }else{
+            flag = true;
+            str[i] = str[i] - 1 ;
+        }
+    }
+    cout<<str<<endl;
 
+    return 0;
+}
 ```     
 ## [K. Tetris](https://codeforces.com/group/yg7WhsFsAp/contest/355508/problem/K)
 ```
-
+#include<bits/stdc++.h>
+typedef long long ll;
+using namespace std;
+int main(){
+    ios_base::sync_with_stdio(false); cin.tie(NULL);
+    
+    int n, m, ans=INT_MAX;
+    cin>>n>>m;
+    vector<int>v(n,0);
+    for(int i=0; i<m; i++){
+        int x; cin>>x;
+        v[x-1]++;
+    }
+    for(auto a: v){
+        ans= min(a, ans);
+    }
+    cout<<ans<<endl;
+    
+    return 0;
+}
 ```     
 ## [L. Mahmoud and Ehab and the even-odd game](https://codeforces.com/group/yg7WhsFsAp/contest/355508/problem/L)
 ```
-
+#include<bits/stdc++.h>
+typedef long long ll;
+using namespace std;
+int main(){
+    ios_base::sync_with_stdio(false); cin.tie(NULL);
+    
+    int n; cin>>n;
+    if(n&1){
+        cout<<"Ehab";
+    }else{
+        cout<<"Mahmoud";
+    }
+    
+    return 0;
+}
 ```    
 ## [M. Mahmoud and Ehab and the message](https://codeforces.com/group/yg7WhsFsAp/contest/355508/problem/M)
 ```
+#include<bits/stdc++.h>
+#define int long long
+using namespace std;
+int32_t main(){
+    ios_base::sync_with_stdio(false); cin.tie(NULL);
+    
+    int n, k, m;    cin>>n>>k>>m;
+    vector<string> language;
+    for(int i=0; i<n; i++){
+        string s; cin>>s;
+        language.push_back(s);
+    }
+    vector<int>cost;
+    for(int i=0; i<n; i++){
+        int x; cin>>x;
+        cost.push_back(x);
+    }
+    while(k--){
+        int x;  cin>>x;
+        int lowest = INT_MAX;
+        vector<int>change;
+        for(int i=0; i<x; i++){
+            int y; cin>>y;
+            change.push_back(y);
+            lowest = min(lowest, cost[y-1]);
+        }
+        for(auto a: change) cost[a-1]=lowest;
+    }
+    unordered_map<string, int>mp;
+    for(int i=0; i<n; i++){
+        mp[language[i]]=cost[i];
+    }
+    int total=0;
+    for(int i=0; i<m; i++){
+        string s; cin>>s;
+        total += mp[s];
+    }
+    cout<<total<<endl;
+    return 0;
+}
 
+// Note: Starting from C++17, structure bindings can be used.
+// for(const auto& [key, value]: unordered_map)
 ```    
 ## [N. Lecture Sleep](https://codeforces.com/group/yg7WhsFsAp/contest/355508/problem/N)
 ```
-
+#include<bits/stdc++.h>
+#define int long long
+using namespace std;
+int32_t main(){
+    ios_base::sync_with_stdio(false); cin.tie(NULL);
+    int n, k; cin>>n>>k;
+    vector<int>lecture(n), state(n), awake(n+1), sleep(n+1);
+    for(int i=0; i<n; i++) cin>>lecture[i];
+    for(int i=0; i<n; i++) cin>>state[i];
+    awake[0]=(0);
+    sleep[0]=(0);
+    int totalLecture = 0;
+    for(int i=0; i<n; i++){
+        if(state[i]==1){
+            awake[i+1] = awake[i] + lecture[i];
+            sleep[i+1] = sleep[i] + (0);
+            totalLecture += lecture[i];
+        }else{
+            awake[i+1] = awake[i] + (0);
+            sleep[i+1] = sleep[i] + lecture[i];
+        }
+    }
+    int extra=0;
+    for(int i=0; i<n-k+1; i++){
+        extra = max(extra, (sleep[i+k]-sleep[i]));
+    }
+    cout<<totalLecture+extra<<endl;
+    return 0;
+}
 ```  
 ## [O. Feed the cat](https://codeforces.com/group/yg7WhsFsAp/contest/355508/problem/O)
 ```
